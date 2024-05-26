@@ -1,11 +1,8 @@
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
-}
+package problems;
 
-/*
-class Solution {
+import java.util.Arrays;
+
+class E552_StudentAttendant2 {
 
     private final int MOD = 1000000007;
     //cache
@@ -19,15 +16,15 @@ class Solution {
         //choose P
         count = combine(n - 1, total, 0) % MOD;
         //choose A
-        count += combine(n - 1, total + 1, 0) % MOD;
+        count = (count + combine(n - 1, total + 1, 0)) % MOD;
         //choose L
-        count += combine(n - 1, total, con + 1) % MOD;
+        count = (count + combine(n - 1, total, con + 1)) % MOD;
         return memo[n][total][con] = count;
     }
 
     public int checkRecord(int n) {
         memo = new int[n + 1][2][3];
-       for (int[][] array2D : memo) {
+        for (int[][] array2D : memo) {
             for (int[] array1D : array2D) {
                 Arrays.fill(array1D, -1);
             }
@@ -36,4 +33,3 @@ class Solution {
         return combine(n, 0, 0);
     }
 }
- */
